@@ -1,0 +1,38 @@
+﻿@model UsuarioModel
+@{
+    ViewData["Title"] = "Cadastro de Usuarios";
+}
+
+<div class="text-center">
+
+    <h1 class="display-4">Cadastro de Usuario</h1>
+    
+
+</div>
+
+<form asp-controller="Usuarios" asp-action="Adicionar" method="post">
+    <div class="mb-3">
+
+        <label for="Nome" class="form-label">Nome do usuario</label>
+        <input type="text" asp-for="nome" class="form-control" placeholder="Digite um nome">
+        @Html.ValidationMessageFor(x => x.nome)  <!-- Nesse trecho configuramos um HTML para apresentar uma mensagem na tela das [Validations]-->
+
+    </div>
+    <div class="mb-3">
+
+        <label for="Email" class="form-label">Email</label>
+        <input type="text" asp-for="email" class="form-control" placeholder="Digite um email">
+        @Html.ValidationMessageFor(x => x.email)
+
+    </div>
+    <div class="mb-3">
+
+        <label for="Contato" class="form-label">Numero para contato</label>
+        <input type="text" asp-for="contato" class="form-control" placeholder="Digite o numero de contato">
+        @Html.ValidationMessageFor(x => x.contato)
+
+    </div>
+   
+    <button type="submit" class="btn btn-primary btn-block">Cadastrar</button>
+    <a class="btn btn-secondary btn-block" role="button" asp-controller="Usuarios" asp-action="Index">Voltar</a>
+</form>

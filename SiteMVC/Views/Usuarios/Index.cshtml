@@ -1,0 +1,69 @@
+﻿@model List<UsuarioModel>
+@{
+    ViewData["Title"] = "Pagina Usuarios";
+}
+
+<div class="text-center">
+
+    @if (TempData["MensagemSucesso"] != null)
+    {
+        <div class="alert alert-success" role="alert">
+            <button type="button" class="btn btn-danger btn-sm close-alert" arial-label="Close">x</button>
+            @TempData["MensagemSucesso"]  <!-- Ira exibir a mensagem armazenada na variavel temporaria "MensagemSucesso" -->
+        </div>
+    }
+
+    @if (TempData["MensagemErro"] != null)
+    {
+        <div class="alert alert-danger" role="alert">
+            <button type="button" class="btn btn-danger btn-sm close-alert" arial-label="Close">x</button>
+            @TempData["MensagemErro"]
+        </div>
+    }
+
+
+    <h1 class="display-4">Listagem de Usuarios</h1>
+    <br />
+    <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+        <a class="btn btn-primary" roule="button" asp-controller="Usuarios" asp-action="AdicionarTela">Adicionar Usuario</a>
+    </div>
+
+    <br />
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col"></th>
+                <th scope="col">Nome</th>
+                <th scope="col">Contato</th>
+                <th scope="col">Email</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model != null && Model.Any())
+            {
+                foreach (UsuarioModel usuario in Model)
+                {
+                    <tr>
+                        <th scope="row">@usuario.id</th>
+                        <th><img src="~/usuario-imagem.png" width="35" height="35" /></th>
+                        <td>@usuario.nome</td>
+                        <td>@usuario.contato</td>
+                        <td>@usuario.email</td>
+                        <td>
+                            <div class="btn-group" role="group">
+                                <a role="button" asp-route-id="@usuario.id" class="btn btn-primary" asp-controller="Usuarios" asp-action="EditarTela">Editar</a>
+                                <a role="button" asp-route-id="@usuario.id" class="btn btn-danger" asp-controller="Usuarios" asp-action="RemoverTela">Excluir</a>
+
+                            </div>
+                        </td>
+                    </tr>
+                }
+            }
+
+        </tbody>
+    </table>
+
+</div>
+

@@ -1,0 +1,15 @@
+﻿@model UsuarioModel
+@{
+    ViewData["Title"] = "Remover Usuario";
+}
+
+<div class="text-center">
+
+    <h3>Realmente deseja remover o usuario: @Model.nome ?</h3>
+
+</div>
+
+<br />
+
+<a class="btn btn-primary btn-block" role="button" asp-controller="Usuarios" asp-action="Index">Cancelar Exclusão</a>
+<a class="btn btn-danger btn-block"   asp-route-id="@Model.id" role="button" asp-controller="Usuarios" asp-action="RemoverBanco" >Confirmar Exclusão</a>
