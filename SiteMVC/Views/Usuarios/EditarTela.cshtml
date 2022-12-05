@@ -11,9 +11,11 @@
 </div>
 
 <form asp-controller="Usuarios" asp-action="Editar" method="post">
+
+    <input type="hidden" asp-for="id" />  <!-- Esse input serve para o Form repassar o id junto com as outras informações para o metodo "Editar" -->
+
     <div class="mb-3">
 
-        <input type="hidden" asp-for="id" />  <!-- Esse input serve para o Form saber o id no qual ele deve associar as alterações-->
 
         <label for="Nome" class="form-label">Nome do usuario</label>
         <input type="text" asp-for="nome" class="form-control" placeholder="Digite um nome">

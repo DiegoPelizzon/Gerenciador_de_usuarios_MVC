@@ -14,7 +14,7 @@
     <div class="mb-3">
 
         <label for="Nome" class="form-label">Nome do usuario</label>
-        <input type="text" asp-for="nome" class="form-control" placeholder="Digite um nome">
+        <input type="text" asp-for="nome" class="form-control" placeholder="Digite um nome"> <!--o "asp-for" funciona para direcionar os dados digitados para o campo da Model a ser preenchido-->
         @Html.ValidationMessageFor(x => x.nome)  <!-- Nesse trecho configuramos um HTML para apresentar uma mensagem na tela das [Validations]-->
 
     </div>
